@@ -26,7 +26,7 @@ with sp.Popen(["make", "serve"], stdout=sp.PIPE, stdin=sp.PIPE, stderr=sp.PIPE) 
         name="user", 
         email="user@gmail.com", 
         phone="080000000001", 
-        password=sqlx_encrypt_pass("1234"), 
+        password=sqlx_encrypt_pass("admin"), 
         type=False, 
         token=None, 
         address=None, 
@@ -74,7 +74,7 @@ with sp.Popen(["make", "serve"], stdout=sp.PIPE, stdin=sp.PIPE, stderr=sp.PIPE) 
         "product_testing",
         name="product_testing",
         detail="detail_product_testing",
-        category_id="category_id",
+        category_id="category_testing",
         images=None,
         price=25000,
         condition="new",
@@ -207,6 +207,7 @@ with sp.Popen(["make", "serve"], stdout=sp.PIPE, stdin=sp.PIPE, stderr=sp.PIPE) 
     def test_get_category():
         printe("Get Category")
         respond, status = get_respond('/home/category')
+        print(respond, status)
         for i in respond['data']:
             if i['id'] == 'category_testing' and i['title'] == 'category_testing':
                 return sp("OK", "passed")
@@ -396,10 +397,10 @@ with sp.Popen(["make", "serve"], stdout=sp.PIPE, stdin=sp.PIPE, stderr=sp.PIPE) 
         # test_connect()
 
         # test_signup()
-        # test_signin() # as User
-        test_signin(True) # as Admin
+        test_signin() # as User
+        # test_signin(True) # as Admin
 
-        # test_get_category()
+        test_get_category()
         
         # test_create_category()
         # test_update_category()
@@ -409,9 +410,9 @@ with sp.Popen(["make", "serve"], stdout=sp.PIPE, stdin=sp.PIPE, stderr=sp.PIPE) 
         # test_update_product()
         # test_delete_product()
 
-        # test_top_up()
-        # test_user_balance()
-        test_total_sales()
+        test_top_up()
+        test_user_balance()
+        # test_total_sales()
 
     reset_all_data_test() # CLEARING DATA TEST FIRST
     run_all_test()
