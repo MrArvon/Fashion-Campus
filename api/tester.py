@@ -29,7 +29,7 @@ with sp.Popen(["make", "serve"], stdout=sp.PIPE, stdin=sp.PIPE, stderr=sp.PIPE) 
         name="user", 
         email="user@gmail.com", 
         phone="080000000001", 
-        password=sqlx_encrypt_pass("1234"), 
+        password=sqlx_encrypt_pass("admin"), 
         type=False, 
         token=None, 
         address=None, 
