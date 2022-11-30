@@ -234,7 +234,7 @@ with sp.Popen(["make", "serve"], stdout=sp.PIPE, stdin=sp.PIPE, stderr=sp.PIPE) 
             data['email'] = 'admin@gmail.com' if admin else 'user@gmail.com'
             print(data['email'])
             if do_post(respond, status, '/sign-in', data, "error, wrong password", 400): return sp("Wrong Password")
-            data['password'] = 'admin' if admin else '1234'
+            data['password'] = 'admin' # if admin else '1234'
 
             try:
                 respond, status = post_respond('/sign-in', data)
@@ -444,6 +444,10 @@ with sp.Popen(["make", "serve"], stdout=sp.PIPE, stdin=sp.PIPE, stderr=sp.PIPE) 
 
             test_signup()
             test_signin() # as User
+
+            test_top_up()
+            test_user_balance()
+
             test_signin(True) # as Admin
 
             test_get_category()
@@ -456,8 +460,6 @@ with sp.Popen(["make", "serve"], stdout=sp.PIPE, stdin=sp.PIPE, stderr=sp.PIPE) 
             test_update_product()
             test_delete_product()
 
-            test_top_up()
-            test_user_balance()
             test_total_sales()
 
         reset_all_data_test() # CLEARING DATA TEST FIRST

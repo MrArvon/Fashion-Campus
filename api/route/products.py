@@ -119,6 +119,10 @@ def get_products():
     while "KOSONG" in data:
         data.remove("KOSONG")
     
+    if data == []:
+        out = {"data": data, "total_rows": 0}
+        return jsonify(out), 200
+
     if body_sort_by[-1] == 'z':
         data.sort(key = lambda x: x["price"])
     else:
