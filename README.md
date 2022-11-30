@@ -14,7 +14,7 @@ https://docs.google.com/spreadsheets/d/1whBKn8omWPQhWK7Q97opmVig0BBWrpyZ_74Cfddj
 ```
 python3 --version
 ```
-Must 'Python 3.8.10' or above
+Must 'Python 3.8.10' or newer
 
 ## Create Virtual Enviroment
 ```
